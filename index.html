@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Combustion Air Calculator</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        label, input { font-size: 1.2em; }
+        button { font-size: 1.2em; margin-top: 10px; }
+        #result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>🔥 Combustion Air Calculator 🔥</h2>
+    <label for="btu">Enter total appliance input (BTU/hr):</label>
+    <input type="number" id="btu" min="0" step="any">
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+    <script>
+        function calculate() {
+            let btu = document.getElementById('btu').value;
+            window.pywebview.api.calculate(btu).then(function(result) {
+                document.getElementById('result').innerHTML = result;
+            });
+        }
+    </script>
+</body>
+</html>
